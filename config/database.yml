@@ -24,7 +24,10 @@ production:
   <<: *default
   adapter: postgresql
   encoding: unicode
-  database: my_rails_app_production
-  pool: 5
-  username: postgres
-  password:
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: daq6e5u9qp7i3
+  username: u8e8l1e9leg30e
+  password: p7aa0fc30a3a9dca22178b33c336753a9bb42391abe2716e4cb27b076074152e5
+  host: cc0gj7hsrh0ht8.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com
+  port: 5432
+  sslmode: require
