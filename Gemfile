@@ -9,6 +9,9 @@ gem "rails", "~> 7.0.8", ">= 7.0.8.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+# filepath: /Users/erindhoxha/Documents/prjcts/store/Gemfile
+gem 'turbolinks', '~> 5'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
