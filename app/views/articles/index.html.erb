@@ -9,7 +9,7 @@
       <%= link_to "Show this article", article %>
     </p>
     <p>
-    <%= link_to "Edit this article", edit_article_path(article), method: :update %>
+    <%= link_to "Edit this article", edit_article_path(article) %>
     <%= button_to "Destroy this article", article_path(article), method: :delete, data: { confirm: "Are you sure?" } %>
     </p>
   <% end %>
