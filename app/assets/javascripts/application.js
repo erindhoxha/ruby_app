@@ -2,3 +2,6 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+import "popper";
+import "bootstrap";

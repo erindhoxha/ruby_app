@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # filepath: /Users/erindhoxha/Documents/prjcts/store/Gemfile
 gem 'turbolinks', '~> 5'
 
+gem "bootstrap"
+gem "sassc-rails"
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
