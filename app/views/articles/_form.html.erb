@@ -12,15 +12,15 @@
 
   <div>
     <%= form.label "Titulli", style: "display: block" %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
   <div>
     <%= form.label "Deshira", style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.submit "Krijo deshiren", class: "btn btn-primary" %>
+    <%= form.submit "Krijo deshiren", class: "btn btn-primary mt-2" %>
   </div>
 <% end %>
