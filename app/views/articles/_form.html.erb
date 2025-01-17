@@ -11,16 +11,16 @@
   <% end %>
 
   <div>
-    <%= form.label :title, style: "display: block" %>
+    <%= form.label "Titulli", style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label "Deshira", style: "display: block" %>
     <%= form.text_area :description %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Krijo deshiren", class: "btn btn-primary" %>
   </div>
 <% end %>

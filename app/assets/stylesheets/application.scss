@@ -34,13 +34,24 @@ body {
   min-height: 100vh !important;
 }
 
+a.card {
+  text-decoration: none !important;
+}
+
 .btn {
   &--link {
     color: white !important;
-    padding: 12px 24px;
+    padding: 12px 36px;
     font-size: 16px;
-    background-color: black;
+    background-color: rgb(30, 30, 30);
     text-decoration: none;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
+}
+
+.ml-auto {
+  margin-left: auto;
 }
