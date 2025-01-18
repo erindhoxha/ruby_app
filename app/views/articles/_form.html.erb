@@ -1,3 +1,4 @@
+<%# filepath: /Users/erindhoxha/Documents/prjcts/store/app/views/articles/_form.html.erb %>
 <%= form_with(model: article) do |form| %>
   <%= render 'shared/errors' %>
   <div class="form-row">
@@ -12,7 +13,7 @@
     </div>
 
     <div>
-      <%= form.submit "Krijo deshiren", class: "btn btn--link mt-2" %>
+      <%= form.submit article.new_record? ? "Krijo deshiren" : "Ndrysho deshiren", class: "btn btn--link mt-2" %>
     </div>
   </div>
 <% end %>
