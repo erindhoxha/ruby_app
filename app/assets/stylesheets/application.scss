@@ -36,6 +36,7 @@ html {
 
 body {
   min-height: 100vh !important;
+  background-color: rgb(16, 16, 16) !important;
 }
 
 a.card {
@@ -44,15 +45,19 @@ a.card {
 
 .btn {
   &--link {
-    color: white !important;
-    padding: 12px 36px;
+    padding: 8px;
     font-size: 1rem;
-    background-color: rgb(30, 30, 30);
+    font-weight: 600;
+    background-color: transparent;
+    color: rgb(30, 30, 30);
+    background-color: rgb(233, 233, 233);
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+    display: block;
+    text-align: center;
+    &:hover {
+      color: rgb(30, 30, 30);
+      background-color: rgb(233, 233, 233);
+    }
   }
 }
 
