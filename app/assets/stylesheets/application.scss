@@ -16,6 +16,10 @@
 
 @import "bootstrap";
 
+html {
+  font-size: 12px;
+}
+
 .navbar {
   background-color: black !important;
   li a,
@@ -42,7 +46,7 @@ a.card {
   &--link {
     color: white !important;
     padding: 12px 36px;
-    font-size: 16px;
+    font-size: 1rem;
     background-color: rgb(30, 30, 30);
     text-decoration: none;
     display: flex;
