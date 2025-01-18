@@ -1,26 +1,18 @@
 <%= form_with(model: article) do |form| %>
-  <% if article.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
-      <ul>
-        <% article.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= render 'shared/errors' %>
+  <div class="form-row">
+    <div class="form-group mb-3">
+      <%= form.label "Titulli", for: "title", class: "form-label" %>
+      <%= form.text_field :title, class: "form-control", id: "title" %>
     </div>
-  <% end %>
 
-  <div>
-    <%= form.label "Titulli", style: "display: block" %>
-    <%= form.text_field :title, class: "form-control" %>
-  </div>
+    <div class="form-group mb-3">
+      <%= form.label "Deshira", for: "description", class: "form-label" %>
+      <%= form.text_area :description, class: "form-control", id: "description" %>
+    </div>
 
-  <div>
-    <%= form.label "Deshira", style: "display: block" %>
-    <%= form.text_area :description, class: "form-control" %>
-  </div>
-
-  <div>
-    <%= form.submit "Krijo deshiren", class: "btn btn-primary mt-2" %>
+    <div>
+      <%= form.submit "Krijo deshiren", class: "btn btn-primary mt-2" %>
+    </div>
   </div>
 <% end %>
