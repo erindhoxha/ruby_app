@@ -64,3 +64,9 @@ a.card {
 .ml-auto {
   margin-left: auto;
 }
+
+@media screen and (min-width: 768px) {
+  .md-ml-auto {
+    margin-left: auto;
+  }
+}
