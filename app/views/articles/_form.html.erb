@@ -3,15 +3,9 @@
   <%= render 'shared/errors' %>
   <div class="form-row">
     <div class="form-group mb-3">
-      <%= form.label "Titulli", for: "title", class: "form-label" %>
-      <%= form.text_field :title, class: "form-control", id: "title" %>
-    </div>
-
-    <div class="form-group mb-3">
       <%= form.label "Deshira", for: "description", class: "form-label" %>
       <%= form.text_area :description, class: "form-control", id: "description" %>
     </div>
-
     <div>
       <%= form.submit article.new_record? ? "Krijo deshiren" : "Ndrysho deshiren", class: "btn btn--link mt-2" %>
     </div>

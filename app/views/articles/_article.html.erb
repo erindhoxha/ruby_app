@@ -1,18 +1,20 @@
 <div id="<%= dom_id article %>" class="card p-3 bg-dark">
   <div class="card-body p-0">
     <div class="d-flex flex-row justify-content-between">
-      <div>
-         <h6 class="text-sm text-muted">Titulli</h6>
-      <h5 class="card-title d-inline">
-        <%= article.title %>
-      </h5>
+      <% if article.title.present? %>
+        <div>
+          <h6 class="text-sm text-muted">Titulli</h6>
+          <h5 class="card-title d-inline">
+            <%= article.title %>
+          </h5>
         </div>
+      <% end %>
       <h6 class="d-inline text-end">
         <%= article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
       </h6>
     </div>
     <div class="mt-3">
-      <h6 class="text-muted">Detajet</h6>
+      <h6 class="text-muted">Deshira</h6>
         <h5>
       <%= article.description %>
     </h5>
