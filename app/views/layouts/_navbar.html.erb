@@ -8,18 +8,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100">
         <li class="nav-item">
-          <%= link_to "Lista e deshirave", articles_path, class: "nav-link" %>
+          <%= link_to "Deshirat", articles_path, class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item">
+          <%= link_to "Krijo nje deshire", new_article_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+        <%= link_to "Si ta perdori?", about_path, class: "nav-link" %>
+        </li>
+        <%# <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Ndihme
           </a>
           <ul class="dropdown-menu">
             <li class="dropdown-item">
               <%= link_to "Si ta perdori?", about_path, class: "nav-link" %>
-            </li>
+            <%# </li>
           </ul>
-        </li>
+        </li> %>
         <li class="nav-item md-ml-auto">
           <%= link_to "Kyçu", login_path, class: "nav-link" %>
         </li>
