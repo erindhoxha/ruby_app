@@ -1,11 +1,12 @@
 <div id="<%= dom_id article %>" class="card p-3 bg-dark">
   <div class="card-body p-0">
     <div class="d-flex flex-row justify-content-between">
-      <% if article.user.present? %>
-        <div>
-        E krijuar nga <span class="font-weight-bold"><%= article.user.username %></span>
-      </div>
-      <% end %>
+      <%# if article.user.present? %>
+      <%#   <div> %>
+      <%#     E krijuar nga <span class="font-weight-bold"><%= article.user.username %>
+      <%# </span> %>
+      <%#   </div> %>
+      <%# end %>
       <% if article.title.present? %>
         <div>
           <h6 class="text-sm text-muted">Titulli</h6>
