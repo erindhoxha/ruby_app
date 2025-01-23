@@ -1,9 +1,19 @@
 <div id="<%= dom_id user %>">
-  <p>
+  <%= gravatar_for @user %>
+  <p class="mt-2">
     <strong>Username:</strong>
     <%= user.username %>
   </p>
+  <p class="mt-2">
+    <strong>Email:</strong>
+    <%= user.email %>
+  </p>
 
-  <%# <%= gravatar_for @user %> %>
+  <h3>Articles</h3>
+  <div class="d-flex flex-column gap-3">
+    <% user.articles.each do |article| %>
+      <%= render article %>
+    <% end %>
+  </div>
 
 </div>
