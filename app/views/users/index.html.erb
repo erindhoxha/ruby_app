@@ -1,9 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Users</h1>
+<h1 class="mb-0">Users</h1>
 
-<div id="users" class="d-flex flex-column gap-4 mt-4">
+<div id="users" class="d-flex flex-column">
   <% @users.each do |user| %>
     <%= render user %>
+    <p class="mb-0">
+      <%= link_to "Show this user", user, class: "btn btn-dark" %>
+    </p>
   <% end %>
 </div>
