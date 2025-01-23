@@ -12,7 +12,7 @@
       </p>
     </div>
   </div>
-  <h3>Wishlist</h3>
+  <h3>Wishlist (<%= user.articles.count %>)</h3>
 <div class="d-flex flex-column gap-3">
   <% if user.articles.any? %>
     <div class="mb-3 gap-3 d-flex flex-column">
