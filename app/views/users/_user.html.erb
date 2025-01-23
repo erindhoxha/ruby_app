@@ -1,5 +1,5 @@
 <div id="<%= dom_id user %>">
-  <%= gravatar_for @user %>
+  <%= gravatar_for user %>
   <p class="mt-2">
     <strong>Username:</strong>
     <%= user.username %>
@@ -8,7 +8,6 @@
     <strong>Email:</strong>
     <%= user.email %>
   </p>
-
   <h3>Articles</h3>
   <div class="d-flex flex-column gap-3">
     <% user.articles.each do |article| %>
