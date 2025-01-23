@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to articles_path, notice: "Mire se vjen, #{@user.username}" }
+        format.html { redirect_to articles_path, notice: "Welcome, #{@user.username}" }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
