@@ -3,11 +3,11 @@
   <%= render 'shared/errors' %>
   <div class="form-row">
     <div class="form-group mb-3">
-      <%= form.label "Wish", for: "description", class: "form-label" %>
+      <%= form.label "Your wish:", for: "description", class: "form-label" %>
       <%= form.text_area :description, class: "form-control", id: "description", rows: 5 %>
     </div>
     <div>
-      <%= form.submit article.new_record? ? "Create" : "Edit", class: "btn btn--link mt-2" %>
+      <%= form.submit article.new_record? ? "Create wish" : "Edit wish", class: "btn btn--link mt-2" %>
     </div>
   </div>
 <% end %>
