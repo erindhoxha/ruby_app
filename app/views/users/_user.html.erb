@@ -15,7 +15,7 @@
   <h3>Wishlist</h3>
 <div class="d-flex flex-column gap-3">
   <% if user.articles.any? %>
-    <div class="mb-3">
+    <div class="mb-3 gap-3 d-flex flex-column">
       <% user.articles.each do |article| %>
         <%= render article %>
       <% end %>
