@@ -135,8 +135,8 @@ a.card {
 }
 
 .apple_pagination {
-  background: #f1f1f1;
-  border: 1px solid #e5e5e5;
+  background: transparent;
+  border: none;
   text-align: center;
   padding: 1em;
   cursor: default;
@@ -160,10 +160,11 @@ a.card {
   -webkit-border-radius: 1em;
   border-radius: 1em;
   text-shadow: rgba(255, 255, 255, 0.8) 1px 1px 1px;
+  color: black;
 }
 .apple_pagination a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 .apple_pagination a:hover,
 .apple_pagination a:focus {
