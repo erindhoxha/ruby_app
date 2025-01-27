@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body class="d-flex flex-column">
     <%= render "layouts/navbar" %>
+    <%= render "shared/confirmation_modal" %>
     <section class="container mt-4 h-100">
       <%= yield %>
       <%= render "layouts/footer" %>
