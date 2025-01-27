@@ -214,3 +214,7 @@ a.card {
 .flickr_pagination .next_page {
   margin-left: 1em;
 }
+
+.modal-backdrop.show {
+  opacity: 0.2 !important;
+}

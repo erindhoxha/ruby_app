@@ -4,7 +4,6 @@
 //= require_tree .
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("AAAA");
   const confirmationModal = document.getElementById("exampleModal");
   const confirmDeleteButton = document.getElementById("confirmDelete");
 
