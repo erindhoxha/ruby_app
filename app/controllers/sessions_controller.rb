@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         format.json { render json: { user: user }, status: :created }
       end
     else
-      flash[:notice] = "Invalid email or password."
+      flash.now[:alert] = "Invalid email or password."
       render :new
     end
   end
