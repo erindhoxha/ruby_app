@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     @articles = @user.articles
+    Rails.logger.debug "User: #{@user.inspect}"
+    Rails.logger.debug "Articles: #{@articles.inspect}"
   end
 
   # GET /users/new

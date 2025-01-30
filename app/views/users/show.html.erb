@@ -2,7 +2,7 @@
 
 <%= render @user %>
 
-<% if current_user.id == @user.id %>
+<% if current_user.id == @user&.id %>
   <div>
     <%= link_to "Edit this user", edit_user_path(@user) %> |
     <%= link_to "Back to users", users_path %>
