@@ -1,6 +1,21 @@
 <%= render 'shared/notice' %>
 
-<h1>wishlist.com</h1>
+<h1>Home</h1>
 <p>This website is created to help in finding the wishes of different people.</p>
-<%= link_to "View all wishes", articles_path, class: "btn btn-dark" %>
-<%= link_to "Create a wish", new_article_path, class: "btn btn-light" %>
+<div style="max-width: 600px;">
+  <%= form_tag articles_path, method: :get, class: "d-flex mb-4" do %>
+    <%= text_field_tag :search, params[:search], class: "form-control me-2", placeholder: "Search for user or wish" %>
+    <%= submit_tag "Search", class: "btn btn-outline-success" %>
+  <% end %>
+</div>
+<%= link_to "View your wishes", articles_path, class: "btn btn-dark" %>
+<%= link_to "View users", users_path, class: "btn btn-light" %>
+<%= link_to "Create a wish", new_article_path, class: "btn btn-warning" %>
+<div class="users-container mt-4">
+ <h2>Latest users created</h2>
+  <div id="users" class="d-flex flex-column">
+   <% @users.each do |user| %>
+     <%= render user %>
+   <% end %>
+ </div>
+</div>

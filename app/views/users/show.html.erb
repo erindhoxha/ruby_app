@@ -1,4 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>Profile</h1>
 
 <%= render @user %>
 
