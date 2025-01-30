@@ -10,7 +10,16 @@
   </div>
 <% end %>
 
-<h1 class="mb-0">Users</h1>
+<div class="d-flex flex-column md-flex-row gap-4 align-items-end">
+  <h1 class="mb-0">Users</h1>
+
+  <div class="d-flex w-100 md-ml-auto" style="max-width: 600px;">
+    <%= form_tag users_path, method: :get, class: "d-flex w-100 gap-2" do %>
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search users" %>
+      <%= submit_tag "Search", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
 
 <div id="users" class="d-flex flex-column">
   <% @users.each do |user| %>
