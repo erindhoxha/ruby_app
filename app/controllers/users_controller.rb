@@ -28,6 +28,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to articles_path, notice: "Welcome, #{@user.username}" }
         format.json { render :show, status: :created, location: @user }
+        session[:user_id] = @user.id
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -50,8 +51,11 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    if session[:user_id] != @user.id
+      redirect_to users_path, status: :see_other, alert: "You can only delete your own account."
+    end
     @user.destroy
-
+    session.delete(:user_id)
     respond_to do |format|
       format.html { redirect_to users_path, status: :see_other, notice: "User was successfully destroyed." }
       format.json { head :no_content }

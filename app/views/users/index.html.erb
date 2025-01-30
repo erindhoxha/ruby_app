@@ -1,5 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <h1 class="mb-0">Users</h1>
 
 <div id="users" class="d-flex flex-column">

@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 5)
+    @articles = current_user.articles.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/1 or /articles/1.json
@@ -17,11 +17,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1/edit
   def edit
+    if @article.user != current_user
+      redirect_to articles_path, alert: "You can only view your own articles."
+    end
   end
 
   # POST /articles or /articles.json
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
 
     respond_to do |format|
       if @article.save
