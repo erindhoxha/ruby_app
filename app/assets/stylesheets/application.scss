@@ -65,9 +65,12 @@ a.card {
   margin-left: auto;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .md-ml-auto {
     margin-left: auto;
+  }
+  .md-flex-row {
+    flex-direction: row !important;
   }
 }
 
