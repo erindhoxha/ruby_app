@@ -13,20 +13,11 @@ class SessionsController < ApplicationController
     end
   end
 
-  def new
+def new
   end
-
   def destroy
     session.delete(:user_id)
     flash[:notice] = "Successfully logged out."
     redirect_to root_path
-  end
-
-  def logged_in?
-    if session[:user_id]
-      render json: { logged_in: true }
-    else
-      render json: { logged_in: false }
-    end
   end
 end

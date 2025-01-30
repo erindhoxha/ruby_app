@@ -18,6 +18,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if session[:user_id] != @user.id
+      redirect_to users_path, status: :see_other, alert: "You can only edit your own account."
+    end
   end
 
   # POST /users or /users.json

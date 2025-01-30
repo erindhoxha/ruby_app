@@ -3,16 +3,22 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = current_user.articles.paginate(page: params[:page], per_page: 5)
+    @articles = current_user&.articles&.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/1 or /articles/1.json
   def show
+    if @article.user != current_user
+      redirect_to articles_path, alert: "You can only view your own articles."
+    end
   end
 
   # GET /articles/new
   def new
     @article = Article.new
+    if !logged_in?
+      redirect_to login_path, alert: "You must be logged in to create an article"
+    end
   end
 
   # GET /articles/1/edit
