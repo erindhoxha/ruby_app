@@ -12,18 +12,23 @@
   <%# link_to "View users", users_path, class: "btn btn-light" %>
   <%# link_to "Create a wish", new_article_path, class: "btn btn-warning" %>
 <%# </div> %>
-<div style="flex: 1;">
-  <%= form_tag articles_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :search, params[:search], class: "form-control me-2", placeholder: "Search for user or wish" %>
-    <%= submit_tag "Search", class: "btn btn-success" %>
-  <% end %>
-</div>
+<% if @users.any? %>
+  <div style="flex: 1;">
+    <%= form_tag articles_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :search, params[:search], class: "form-control me-2", placeholder: "Search for user or wish" %>
+      <%= submit_tag "Search", class: "btn btn-success" %>
+    <% end %>
   </div>
-<div class="users-container mt-4">
- <h2>Latest users created</h2>
-  <div id="users" class="d-flex flex-column">
-   <% @users.each do |user| %>
-     <%= render user %>
-   <% end %>
- </div>
+<% end %> 
 </div>
+<% if @users.any? %>
+  <div class="users-container mt-4">
+    <h2>Latest users created</h2>
+      <div id="users" class="d-flex flex-column">
+        <% @users.each do |user| %>
+          <%= render user %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
