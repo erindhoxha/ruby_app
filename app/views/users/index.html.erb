@@ -1,3 +1,4 @@
+<!-- filepath: /Users/erindhoxha/Documents/prjcts/store/app/views/users/index.html.erb -->
 <% if notice %>
   <div class="alert alert-success" role="alert">
     <%= notice %>
@@ -22,25 +23,46 @@
 </div>
 
 <div id="users" class="d-flex flex-column">
-  <% @users.each do |user| %>
-  <hr>
-  <div class="d-flex align-items-center">
-    <%= link_to user_path(user), class: "d-flex flex-row gap-3 align-items-center title-link" do %>
-    <%= gravatar_for user %>
-    <div class="mb-0">
-      <h4 class="mb-0">
-        <%= user.username %>
-      </h4>
-      <span>
-        Wishlist items: <%= user.articles.count %>
-      </span>
+  <% if @current_user %>
+    <hr>
+    <div class="d-flex align-items-center current-user">
+      <%= link_to user_path(@current_user), class: "d-flex flex-row gap-3 align-items-center title-link" do %>
+        <%= gravatar_for @current_user %>
+        <div class="mb-0">
+          <h4 class="mb-0">
+            <%= @current_user.username %>
+          </h4>
+          <span>
+            Wishlist items: <%= @current_user.articles.count %>
+          </span>
+        </div>
+      <% end %>
+      <div class="mb-0 ml-auto text-right">
+        <%= link_to "Edit", edit_user_path(@current_user), class: "btn btn-warning" %>
+        <%= link_to "View more", @current_user, class: "btn btn-light" %>
+      </div>
     </div>
-    <% end %>
-    <p class="mb-0 ml-auto">
-      <%= link_to "View more", user, class: "btn btn-light" %>
-    </p>
-  </div>
+  <% end %>
+
+  <% @other_users.each do |user| %>
+    <hr>
+    <div class="d-flex align-items-center">
+      <%= link_to user_path(user), class: "d-flex flex-row gap-3 align-items-center title-link" do %>
+        <%= gravatar_for user %>
+        <div class="mb-0">
+          <h4 class="mb-0">
+            <%= user.username %>
+          </h4>
+          <span>
+            Wishlist items: <%= user.articles.count %>
+          </span>
+        </div>
+      <% end %>
+      <p class="mb-0 ml-auto">
+        <%= link_to "View more", user, class: "btn btn-light" %>
+      </p>
+    </div>
   <% end %>
 </div>
 
-<%= will_paginate @users, class: "apple_pagination" %>
+<%= will_paginate @other_users, class: "apple_pagination" %>
