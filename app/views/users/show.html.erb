@@ -4,20 +4,20 @@
   </div>
 <% end %>
 
-<h1><%= @user.username %> details</h1>
-
-<% if logged_in? && current_user == @user %>
-  <hr>
-  <div class="d-flex gap-3 w-100 mb-3">
-    <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-warning" %>
-    <hr>
-    <div class="ml-auto">
-      <%= button_to "Delete your account", @user, method: :delete, class: "btn btn-danger ml-auto" %>
+<div class="d-flex flex-column md-flex-row gap-3 md-align-items-end">
+  <h1><%= @user.username %> details</h1>
+  <% if logged_in? && current_user == @user %>
+    <div class="d-flex gap-2 md-ml-auto">
+      <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-warning md-ml-auto" %>
+      <hr>
+      <div>
+        <%= button_to "Delete your account", @user, method: :delete, class: "btn btn-danger" %>
+      </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
 <hr>
+
 <%= render @user %>
 
 <hr>
