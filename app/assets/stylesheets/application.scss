@@ -27,7 +27,7 @@ html {
     color: white !important;
   }
   a.dropdown-item {
-    color: black !important;
+    color: white !important;
   }
   a.disabled {
     color: grey !important;
@@ -72,9 +72,21 @@ a.card {
   .md-flex-row {
     flex-direction: row !important;
   }
+  .md-align-items-end {
+    align-items: end !important;
+  }
 }
 
 // Pagination
+
+.nav-item {
+  border-radius: 4px;
+}
+
+.nav-item:hover {
+  background-color: rgb(30, 30, 30) !important;
+  transition: 0.3s ease-in-out;
+}
 
 .digg_pagination {
   background: white;
@@ -231,4 +243,6 @@ a.card {
 
 #logo {
   font-weight: bold;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }

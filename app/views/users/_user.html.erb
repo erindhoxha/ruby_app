@@ -1,17 +1,12 @@
 
 <hr>
 <div id="<%= dom_id user %>">
-  <div class="d-flex flex-row gap-3 align-items-start">
+  <div class="d-flex flex-row gap-3 align-items-center mb-4">
     <%= gravatar_for user %>
-    <div class="mb-4">
-      <p class="mb-0">
-        <strong>Username:</strong>
+    <div class="mb-0">
+      <h4 class="mb-0">
         <%= user.username %>
-      </p>
-      <p class="mb-0">
-        <strong>Email:</strong>
-        <%= user.email %>
-      </p>
+      </h4>
     </div>
   </div>
   <h5>Wishlist (<%= user.articles.count %>):</h5>

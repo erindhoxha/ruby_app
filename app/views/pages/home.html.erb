@@ -1,16 +1,24 @@
 <%= render 'shared/notice' %>
 
-<h1>Home</h1>
-<p>This website is created to help in finding the wishes of different people.</p>
-<div style="max-width: 600px;">
-  <%= form_tag articles_path, method: :get, class: "d-flex mb-4" do %>
+<div>
+<div class="d-flex flex-column">
+  <h1>Home</h1>
+  <p>This website is created to help in finding the wishes of different people.</p>
+</div>
+</div>
+<div class="d-flex flex-column md-flex-row gap-3 md-align-items-start">
+<%# <div> %>
+  <%# link_to "View your wishes", articles_path, class: "btn btn-dark" %>
+  <%# link_to "View users", users_path, class: "btn btn-light" %>
+  <%# link_to "Create a wish", new_article_path, class: "btn btn-warning" %>
+<%# </div> %>
+<div style="flex: 1;">
+  <%= form_tag articles_path, method: :get, class: "d-flex" do %>
     <%= text_field_tag :search, params[:search], class: "form-control me-2", placeholder: "Search for user or wish" %>
     <%= submit_tag "Search", class: "btn btn-outline-success" %>
   <% end %>
 </div>
-<%= link_to "View your wishes", articles_path, class: "btn btn-dark" %>
-<%= link_to "View users", users_path, class: "btn btn-light" %>
-<%= link_to "Create a wish", new_article_path, class: "btn btn-warning" %>
+  </div>
 <div class="users-container mt-4">
  <h2>Latest users created</h2>
   <div id="users" class="d-flex flex-column">
