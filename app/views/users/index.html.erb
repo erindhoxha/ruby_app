@@ -24,9 +24,6 @@
 <div id="users" class="d-flex flex-column">
   <% @users.each do |user| %>
     <%= render user %>
-    <p class="mb-0">
-      <%= link_to "Show this user", user, class: "btn btn-dark" %>
-    </p>
   <% end %>
 </div>
 
