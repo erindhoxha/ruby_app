@@ -4,10 +4,10 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @current_user = current_user
-    @other_users = User.where.not(id: current_user.id).paginate(page: params[:page], per_page: 5)
-    @users = User.paginate(page: params[:page], per_page: 5)
+    @other_users = User.where.not(id: current_user.id).paginate(page: params[:page], per_page: 5) || []
+    @users = User.paginate(page: params[:page], per_page: 5) || []
   end
-
+  
   # GET /users/1 or /users/1.json
   def show
     @articles = @user.articles
