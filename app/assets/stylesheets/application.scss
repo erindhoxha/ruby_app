@@ -251,3 +251,27 @@ a.card {
   color: white;
   text-decoration: none;
 }
+
+.users-home {
+  border-radius: 8px;
+  margin-top: 12px;
+  > div {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(222, 226, 230, 0.25);
+  }
+  > div:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+.users-container {
+  padding: 24px;
+  border: none;
+  border-radius: 8px;
+  h2 {
+    margin-bottom: 24px;
+  }
+}

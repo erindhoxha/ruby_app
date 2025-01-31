@@ -1,5 +1,4 @@
 
-<hr>
 <div id="<%= dom_id user %>">
 <!-- filepath: /Users/erindhoxha/Documents/prjcts/store/app/views/users/_user.html.erb -->
   <div class="d-flex align-items-center">
@@ -18,13 +17,13 @@
   <h5>Wishlist (<%= user.articles.count %>):</h5>
 <div class="d-flex flex-column gap-3">
   <% if user.articles.any? %>
-    <div class="mb-3 gap-3 d-flex flex-column">
+    <div class="gap-3 d-flex flex-column">
       <% user.articles.each do |article| %>
         <%= render article %>
       <% end %>
     </div>
   <% else %>
-    <p>No wishes available.</p>
+    <p class="mb-0">No wishes available.</p>
   <% end %>
 </div>
 </div>

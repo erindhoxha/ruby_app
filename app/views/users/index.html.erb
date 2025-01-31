@@ -23,7 +23,23 @@
 
 <div id="users" class="d-flex flex-column">
   <% @users.each do |user| %>
-    <%= render user %>
+  <hr>
+  <div class="d-flex align-items-center">
+    <%= link_to user_path(user), class: "d-flex flex-row gap-3 align-items-center title-link" do %>
+    <%= gravatar_for user %>
+    <div class="mb-0">
+      <h4 class="mb-0">
+        <%= user.username %>
+      </h4>
+      <span>
+        Wishlist items: <%= user.articles.count %>
+      </span>
+    </div>
+    <% end %>
+    <p class="mb-0 ml-auto">
+      <%= link_to "View more", user, class: "btn btn-light" %>
+    </p>
+  </div>
   <% end %>
 </div>
 

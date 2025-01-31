@@ -22,9 +22,9 @@
 <% end %> 
 </div>
 <% if @users.any? %>
-  <div class="users-container mt-4">
+  <div class="mt-4 users-container">
     <h2>Latest users created</h2>
-      <div id="users" class="d-flex flex-column">
+      <div class="d-flex flex-column users-home">
         <% @users.each do |user| %>
           <%= render user %>
         <% end %>
