@@ -10,9 +10,11 @@
       </h4>
     </div>
     <% end %>
-    <p class="mb-0 ml-auto">
+    <% unless controller_name == 'users' && action_name == 'show' %>
+      <p class="mb-0 ml-auto">
         <%= link_to "View", user, class: "btn btn-light" %>
       </p>
+    <% end %>
   </div>
   <h5>Wishlist (<%= user.articles.count %>):</h5>
 <div class="d-flex flex-column gap-3">
