@@ -8,8 +8,8 @@ class PagesController < ApplicationController
 
   def search
     if params[:search].present?
-      @users = User.where("username LIKE ?", "%#{params[:search]}%")
-      @articles = Article.where("title LIKE ? OR description LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      @users = User.where("username ILIKE ?", "%#{params[:search]}%")
+      @articles = Article.where("title ILIKE ? OR description ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
     else
       @users = []
       @articles = []
