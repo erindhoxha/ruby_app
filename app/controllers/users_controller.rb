@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     else
       @other_users = User.paginate(page: params[:page], per_page: 5)
     end
-  
     @users = User.paginate(page: params[:page], per_page: 5)
   end
   
