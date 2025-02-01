@@ -14,7 +14,7 @@
 <%# </div> %>
 <% if @users.any? %>
   <div style="flex: 1;">
-    <%= form_tag articles_path, method: :get, class: "d-flex" do %>
+    <%= form_tag search_path, method: :get, class: "d-flex mb-4" do %>
       <%= text_field_tag :search, params[:search], class: "form-control me-2", placeholder: "Search for user or wish" %>
       <%= submit_tag "Search", class: "btn btn-success" %>
     <% end %>

@@ -1,7 +1,7 @@
 <div id="<%= dom_id article %>" class="card p-3 bg-dark">
   <div class="card-body p-0">
     <div class="d-flex flex-row justify-content-between">
-      <% if article.user_id.present? %>
+      <% if article.user.present? %>
       <div>
        From: <%= article.user.username %></span>
         </div>
