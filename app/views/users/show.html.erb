@@ -4,6 +4,12 @@
   </div>
 <% end %>
 
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <div class="d-flex flex-column md-flex-row gap-3 md-align-items-end">
   <h1><%= @user.username %> details</h1>
   <% if logged_in? && current_user == @user %>
