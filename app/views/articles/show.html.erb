@@ -6,6 +6,12 @@
   </div>
 <% end %>
 
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <h1>Wish: #<%= @article.id %></h1>
 <hr>
   <h6 class="mt-3">Detajet</h6>

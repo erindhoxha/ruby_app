@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy ]
   before_action :require_user, except: [:index, :show]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   # GET /articles or /articles.json
   def index
@@ -9,24 +10,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles/1 or /articles/1.json
   def show
-    if @article.user != current_user
-      redirect_to articles_path, alert: "You can only view your own articles."
-    end
   end
 
   # GET /articles/new
   def new
     @article = Article.new
-    if !logged_in?
-      redirect_to login_path, alert: "You must be logged in to create an article"
-    end
   end
 
   # GET /articles/1/edit
   def edit
-    if @article.user != current_user
-      redirect_to articles_path, alert: "You can only view your own articles."
-    end
   end
 
   # POST /articles or /articles.json
@@ -77,5 +69,12 @@ class ArticlesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def article_params
       params.require(:article).permit(:title, :description)
+    end
+
+    def require_same_user
+      if current_user != @article.user
+        flash[:alert] = "You can only edit or delete your own articles"
+        redirect_to @article
+      end
     end
 end
