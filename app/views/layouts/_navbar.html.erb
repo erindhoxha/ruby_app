@@ -29,6 +29,7 @@
                   Profile: [<%= current_user.username %>]
                 </a>
                 <ul class="dropdown-menu">
+                  <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
                   <%= link_to "Edit Profile", edit_user_path(current_user), class: "dropdown-item" %>
                   <%= link_to "View wishlist", articles_path, class: "dropdown-item" %>
                 </ul>
