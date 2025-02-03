@@ -29,6 +29,9 @@ html {
   a.dropdown-item {
     color: white !important;
   }
+  a.dropdown-item.text-danger {
+    color: #f5c6cb !important;
+  }
   a.disabled {
     color: grey !important;
   }
