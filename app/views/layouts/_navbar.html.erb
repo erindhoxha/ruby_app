@@ -26,7 +26,7 @@
           <div class="md-ml-auto d-flex flex-column md-flex-row">
               <li class="nav-item dropdown md-ml-auto">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Profile: [<%= current_user.username %>]
+                  <%= "(Admin)" if current_user.admin? %> Profile: [<%= current_user.username %>]
                 </a>
                 <ul class="dropdown-menu">
                   <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
