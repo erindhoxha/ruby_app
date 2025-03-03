@@ -1,5 +1,11 @@
 <%= render 'shared/notice' %>
 
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <div>
 <div class="d-flex flex-column">
   <h1>Home</h1>
