@@ -23,7 +23,7 @@
 </div>
 
 <div id="users" class="d-flex flex-column">
-  <% if @current_user || @current_user.admin? %>
+  <% if @current_user %>
     <hr>
     <div class="d-flex align-items-center current-user">
       <%= link_to user_path(@current_user), class: "d-flex flex-row gap-3 align-items-center title-link" do %>
@@ -59,7 +59,7 @@
         </div>
       <% end %>
       <p class="mb-0 ml-auto">
-        <% if current_user.admin? %>
+        <% if current_user&.admin? %>
           <%= link_to "Edit", edit_user_path(user), class: "btn btn-warning" %>
         <% end %>
         <%= link_to "View more", user, class: "btn btn-light" %>

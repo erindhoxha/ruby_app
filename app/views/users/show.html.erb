@@ -12,7 +12,7 @@
 
 <div class="d-flex flex-column md-flex-row gap-3 md-align-items-end">
   <h1><%= @user.username %> details</h1>
-  <% if logged_in? && current_user == @user %>
+  <% if logged_in? && (current_user == @user || current_user.admin?) %>
     <div class="d-flex gap-2 md-ml-auto">
       <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-warning md-ml-auto" %>
       <hr>

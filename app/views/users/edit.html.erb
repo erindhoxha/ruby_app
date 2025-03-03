@@ -5,6 +5,8 @@
 <br>
 
 <div>
+  <%# delete user button %>
+  <%= button_to "Delete this user", @user, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger mb-3" %>
   <%= link_to "Show this user", @user %> |
   <%= link_to "Back to users", users_path %>
 </div>
