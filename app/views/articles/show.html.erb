@@ -12,6 +12,16 @@
   </div>
 <% end %>
 
+<h1><%= @article.title %></h1>
+<p><%= @article.description %></p>
+<% if @article.og_image.present? %>
+  <img src="<%= @article.og_image %>" alt="OG Image">
+<% end %>
+<% if @article.og_description.present? %>
+  <p><%= @article.og_description %></p>
+<% end %>
+<p><%= link_to "Back to Wishlist", articles_path %></p>
+
 <h1>Wish: #<%= @article.id %></h1>
 <hr>
   <h6 class="mt-3">Detajet</h6>

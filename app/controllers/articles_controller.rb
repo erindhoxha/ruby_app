@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.user = current_user
+    fetch_metadata(@article) if @article.url.present?
 
     respond_to do |format|
       if @article.save
@@ -39,8 +40,14 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1 or /articles/1.json
   def update
+    # Update the article with the new URL first
+    if article_params[:url].present?
+      @article.assign_attributes(article_params)
+      fetch_metadata(@article)
+    end
+
     respond_to do |format|
-      if @article.update(article_params)
+      if @article.save
         format.html { redirect_to @article, notice: "Article was successfully updated." }
         format.json { render :show, status: :ok, location: @article }
       else
@@ -68,13 +75,45 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :description)
+      params.require(:article).permit(:title, :description, :url)
     end
 
     def require_same_user
       if current_user != @article.user && !current_user.admin?
         flash[:alert] = "You can only edit or delete your own articles"
         redirect_to @article
+      end
+    end
+
+    def fetch_metadata(article)
+      require 'open-uri'
+      require 'nokogiri'
+    
+      begin
+        Rails.logger.debug "Fetching metadata for URL: #{article.url}"
+        # Set a user-agent header to mimic a browser request
+        options = {
+          "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"
+        }
+        doc = Nokogiri::HTML(URI.open(article.url, options))
+        
+        # Fetch og:title and assign it to description if present
+        og_title = doc.at('meta[property="og:title"]')&.[]('content')
+        article.description = og_title || doc.at('title')&.text
+        Rails.logger.debug "Fetched description (og:title): #{article.description}"
+        
+        # Fetch og:image
+        article.og_image = doc.at('meta[property="og:image"]')&.[]('content')
+        article.og_image ||= doc.at('#landingImage')&.[]('src')
+        Rails.logger.debug "Fetched og_image: #{article.og_image}"
+        
+        # Fetch og:description
+        article.og_description = doc.at('meta[property="og:description"]')&.[]('content')
+        Rails.logger.debug "Fetched og_description: #{article.og_description}"
+      rescue OpenURI::HTTPError => e
+        Rails.logger.error "HTTP Error: #{e.message}"
+      rescue StandardError => e
+        Rails.logger.error "Error fetching metadata: #{e.message}"
       end
     end
 end

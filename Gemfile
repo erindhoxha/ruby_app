@@ -30,7 +30,12 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# add binding.pry
+gem 'pry-byebug'
+
 gem 'rails-ujs'
+
+gem 'meta-tags'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
