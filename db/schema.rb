@@ -20,6 +20,7 @@ ActiveRecord::Schema[7.0].define(version: 2025_03_03_130150) do
     t.string "url"
     t.string "og_image"
     t.text "og_description"
+    t.string "og_title"
   end
 
   create_table "users", force: :cascade do |t|

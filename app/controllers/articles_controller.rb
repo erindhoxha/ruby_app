@@ -75,7 +75,7 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :description, :url)
+      params.require(:article).permit(:title, :description, :url, :og_image, :og_description,)
     end
 
     def require_same_user
@@ -99,7 +99,8 @@ class ArticlesController < ApplicationController
         
         # Fetch og:title and assign it to description if present
         og_title = doc.at('meta[property="og:title"]')&.[]('content')
-        article.description = og_title || doc.at('title')&.text
+        article.og_title = og_title
+        # article.description = og_title || doc.at('title')&.text
         Rails.logger.debug "Fetched description (og:title): #{article.description}"
         
         # Fetch og:image

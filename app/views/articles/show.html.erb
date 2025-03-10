@@ -12,16 +12,6 @@
   </div>
 <% end %>
 
-<h1><%= @article.title %></h1>
-<p><%= @article.description %></p>
-<% if @article.og_image.present? %>
-  <img src="<%= @article.og_image %>" alt="OG Image">
-<% end %>
-<% if @article.og_description.present? %>
-  <p><%= @article.og_description %></p>
-<% end %>
-<p><%= link_to "Back to Wishlist", articles_path %></p>
-
 <h1>Wish: #<%= @article.id %></h1>
 <hr>
   <h6 class="mt-3">Detajet</h6>
@@ -32,6 +22,18 @@
   <h5>
     <%= @article.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   </h5>
+<% if @article.og_title.present? || @article.og_image.present? || @article.og_description.present? %>
+  <h5 class="mt-3">Prej linkut:</h5>
+<% end %>
+<% if @article.og_title.present? %>
+  <h5><%= @article.og_title %></h5>
+<% end %>
+<% if @article.og_image.present? %>
+  <img class="og-image" src="<%= @article.og_image %>" alt="OG Image">
+<% end %>
+<% if @article.og_description.present? %>
+  <p><%= @article.og_description %></p>
+<% end %>
 </div>
 <% if logged_in? && (current_user == @article.user || current_user.admin?) %>
 <hr>

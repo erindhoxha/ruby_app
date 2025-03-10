@@ -68,6 +68,14 @@ a.card {
   margin-left: auto;
 }
 
+.og-image {
+  width:100%;
+  max-width: 400px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  margin-top: 6px;
+}
+
 @media screen and (min-width: 992px) {
   .md-ml-auto {
     margin-left: auto;
