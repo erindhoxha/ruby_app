@@ -75,7 +75,7 @@ class ArticlesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def article_params
-      params.require(:article).permit(:title, :description, :url, :og_image, :og_description,)
+      params.require(:article).permit(:title, :description, :url, :og_image, :og_description, :og_title)
     end
 
     def require_same_user
