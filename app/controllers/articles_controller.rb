@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles or /articles.json
   def index
-    @articles = current_user&.articles&.paginate(page: params[:page], per_page: 5)
+    @articles = current_user&.articles&.order(created_at: :desc)&.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /articles/1 or /articles/1.json

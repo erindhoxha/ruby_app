@@ -14,10 +14,9 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 5)
   end
   
-  
   # GET /users/1 or /users/1.json
   def show
-    @articles = @user.articles
+    @articles = @user.articles.order(created_at: :desc)
     Rails.logger.debug "User: #{@user.inspect}"
     Rails.logger.debug "Articles: #{@articles.inspect}"
   end

@@ -19,7 +19,7 @@
 <div class="d-flex flex-column gap-3">
   <% if user.articles.any? %>
     <div class="gap-3 d-flex flex-column">
-      <% user.articles.each do |article| %>
+      <% user.articles.order(created_at: :desc).each do |article| %>
         <%= render article %>
       <% end %>
     </div>
