@@ -9,7 +9,6 @@ document.addEventListener("turbolinks:load", () => {
   if (confirmationModal && confirmDeleteButton) {
     confirmationModal.addEventListener("show.bs.modal", (event) => {
       const button = event.relatedTarget;
-      console.log("LOAD");
       const articleId = button.getAttribute("data-article-id");
       confirmDeleteButton.setAttribute("data-article-id", articleId);
     });
