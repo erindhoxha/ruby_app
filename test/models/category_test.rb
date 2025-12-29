@@ -6,4 +6,10 @@ class CategoryTest < ActiveSupport::TestCase
   @category = Category.new(name: "Sports")
   assert @category.valid?
  end
+
+ test "category name should be present" do
+  @category = Category.new(name: "");
+  assert @category.valid?
+ end
+ 
 end
