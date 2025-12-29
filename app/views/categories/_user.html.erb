@@ -1,0 +1,31 @@
+
+<div id="<%= dom_id user %>">
+  <div class="d-flex align-items-center">
+    <%= link_to user_path(user), class: "d-flex flex-row gap-3 align-items-center mb-4 title-link" do %>
+    <%= gravatar_for user %>
+    <div class="mb-0">
+      <h4 class="mb-0">
+        <%= user.username %>
+      </h4>
+    </div>
+    <% end %>
+    <% unless controller_name == 'users' && action_name == 'show' %>
+      <p class="mb-0 ml-auto">
+        <%= link_to "View", user, class: "btn btn-light" %>
+      </p>
+    <% end %>
+  </div>
+  <h5>Wishlist (<%= user.articles.count %>):</h5>
+<div class="d-flex flex-column gap-3">
+  <% if user.articles.any? %>
+    <div class="gap-3 d-flex flex-column">
+      <% user.articles.order(created_at: :desc).each do |article| %>
+        <%= render article %>
+      <% end %>
+    </div>
+  <% else %>
+    <p class="mb-0">No wishes available.</p>
+  <% end %>
+</div>
+</div>
+
