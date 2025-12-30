@@ -1,0 +1,15 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<div class="d-flex flex-column md-flex-row gap-3 md-align-items-end">
+  <h1>Category: <%= @category.name %></h1>
+</div>
