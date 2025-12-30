@@ -1,0 +1,30 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<h1>Categories</h1>
+<div id="articles" class="d-flex flex-column gap-3 mt-4">
+  <% @categories&.each do |category| %>
+    <a href="<%= category_path(category) %>" class="category-link">
+      <div class="category-item p-3 border rounded">
+        <h3><%= category.name %></h3>
+      </div>
+    </a> 
+  <% end %>
+</div>
+
+<% if @categories %>
+<%= will_paginate @categories, class: "apple_pagination" %>
+<% end %>
+
+
+
+
