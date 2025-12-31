@@ -16,6 +16,7 @@
     <a href="<%= category_path(category) %>" class="category-link">
       <div class="category-item p-3 border rounded">
         <h3><%= category.name %></h3>
+        <p><%= pluralize(category.articles.count, 'article') %></p>
       </div>
     </a> 
   <% end %>

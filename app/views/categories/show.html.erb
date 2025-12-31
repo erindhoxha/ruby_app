@@ -10,6 +10,16 @@
   </div>
 <% end %>
 
+
 <div class="d-flex flex-column md-flex-row gap-3 md-align-items-end">
   <h1>Category: <%= @category.name %></h1>
+  <%= link_to "Edit Category", edit_category_path(@category), class: "btn btn-warning mb-2" %>
 </div>
+  <p class="mb-0">Total wishes: <%= pluralize(@category.articles.count, 'wish') %></p>
+<hr>
+<div id="articles" class="d-flex flex-column gap-3 mt-4">
+  <% @category.articles&.each do |article| %>
+    <%= render article %>
+  <% end %>
+</div>
+

@@ -1,6 +1,13 @@
 
 <div id="<%= dom_id article %>" class="card p-3 bg-dark">
   <div class="card-body p-0">
+          <% if article.categories.any? %>
+        <div class="mb-2">
+          <% article.categories.each do |category| %>
+            <%= link_to category.name, category_path(category), class: "badge bg-secondary" %>
+          <% end %> 
+        </div>
+      <% end %>
     <div class="d-flex flex-row justify-content-between">
       <% if article.user.present? %>
       <div>
